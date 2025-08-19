@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Mail } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 export const AuthForm = () => {
   const [loading, setLoading] = useState(false);
@@ -27,6 +27,7 @@ export const AuthForm = () => {
           email,
           password,
           options: {
+            emailRedirectTo: `${window.location.origin}/`,
             data: {
               first_name: firstName,
               last_name: lastName,
@@ -64,12 +65,12 @@ export const AuthForm = () => {
     }
   };
 
-  const handleSocialAuth = async (provider: 'google' | 'facebook' | 'twitter_x' | 'azure') => {
+  const handleSocialAuth = async (provider: 'google' | 'facebook' | 'twitter' | 'azure') => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}`,
+          redirectTo: `${window.location.origin}/`,
         }
       });
       
@@ -240,7 +241,7 @@ export const AuthForm = () => {
             
             <Button
               variant="outline"
-              onClick={() => handleSocialAuth('twitter_x')}
+              onClick={() => handleSocialAuth('twitter')}
               className="w-full"
             >
               <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
