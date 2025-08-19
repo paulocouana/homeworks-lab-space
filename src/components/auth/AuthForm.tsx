@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
@@ -9,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
+import type { Provider } from '@supabase/supabase-js';
 
 export const AuthForm = () => {
   const [loading, setLoading] = useState(false);
@@ -65,7 +65,7 @@ export const AuthForm = () => {
     }
   };
 
-  const handleSocialAuth = async (provider: 'google' | 'facebook' | 'twitter' | 'azure') => {
+  const handleSocialAuth = async (provider: Provider) => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
