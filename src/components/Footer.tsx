@@ -45,23 +45,18 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Engajar */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-white/60" />
-                <span className="text-white/80">info@homeworkslab.pt</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-white/60" />
-                <span className="text-white/80">+351 xxx xxx xxx</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-white/60" />
-                <span className="text-white/80">Lisboa, Portugal</span>
-              </div>
-            </div>
+            <h3 className="text-lg font-semibold mb-4">Engajar</h3>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Entre em contacto</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Torne-se um parceiro</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Eventos</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Podcasts</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Participar da pesquisa do usuário</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Estamos contratando. Faça parte da equipa da HomeWorks</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Comunidade do HomeWorks</a></li>
+            </ul>
           </div>
         </div>
 

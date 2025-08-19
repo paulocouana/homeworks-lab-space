@@ -1,4 +1,4 @@
-import { Users, TrendingUp, Shield, Clock, Globe, Smartphone } from "lucide-react";
+import { Users, TrendingUp, Shield, Clock, Globe, Smartphone, Zap, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const FeaturesSection = () => {
@@ -17,6 +17,11 @@ const FeaturesSection = () => {
       icon: Users,
       title: "Gestão de Utilizadores",
       description: "Gerencie reservas e comunique directamente com os seus clientes."
+    },
+    {
+      icon: TrendingUp,
+      title: "Maximize Receitas",
+      description: "Optimize a ocupação do seu espaço e aumente os lucros."
     }
   ];
 
@@ -32,9 +37,24 @@ const FeaturesSection = () => {
       description: "Pague com cartão, PayPal, Stripe, M-Pesa, mKesh ou e-Mola."
     },
     {
-      icon: Clock,
+      icon: Zap,
       title: "Reserva Instantânea",
       description: "Reserve espaços em tempo real com confirmação imediata."
+    },
+    {
+      icon: Clock,
+      title: "Flexibilidade Total",
+      description: "Reserve por horas, dias ou meses. Adapta-se às suas necessidades de trabalho."
+    },
+    {
+      icon: Users,
+      title: "Comunidade",
+      description: "Conecte-se com outros profissionais e faça networking de qualidade."
+    },
+    {
+      icon: Calendar,
+      title: "Eventos",
+      description: "Participe de eventos de networking e mais."
     }
   ];
 

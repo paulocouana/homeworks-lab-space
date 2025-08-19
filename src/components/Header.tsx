@@ -24,6 +24,18 @@ const Header = () => {
           <a href="#precos" className="text-foreground hover:text-primary transition-colors">
             Preços
           </a>
+          <a href="#" className="text-foreground hover:text-primary transition-colors">
+            Visão Geral
+          </a>
+          <a href="#" className="text-foreground hover:text-primary transition-colors">
+            Soluções
+          </a>
+          <a href="#" className="text-foreground hover:text-primary transition-colors">
+            Serviços
+          </a>
+          <a href="#" className="text-foreground hover:text-primary transition-colors">
+            Entre em Contacto com Nossa Equipa
+          </a>
         </nav>
 
         <div className="flex items-center space-x-4">
