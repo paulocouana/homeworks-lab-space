@@ -51,7 +51,7 @@ const Header = () => {
           <a href="#" className="text-foreground hover:text-primary transition-colors">
             Serviços
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition-colors">
+          <a href="/contacto" className="text-foreground hover:text-primary transition-colors">
             Entre em Contacto com Nossa Equipa
           </a>
         </nav>
