@@ -213,7 +213,7 @@ const Contacto = () => {
 
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">
-              Ou entre em contacto connosco diretamente:
+              Ou entre em contacto connosco directamente:
             </p>
             <div className="space-y-2">
               <p className="text-foreground">
