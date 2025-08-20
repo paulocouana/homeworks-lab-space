@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Leaf, Globe } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -14,7 +14,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Homeworks Lab</span>
             </div>
             <p className="text-white/80 mb-4">
-              A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios em Portugal.
+              A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios em Portugal e Moçambique.
             </p>
             <div className="flex space-x-4">
               <Facebook className="w-5 h-5 text-white/60 hover:text-white cursor-pointer transition-colors" />
@@ -60,10 +60,48 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-12 pt-8 text-center">
-          <p className="text-white/60">
-            © 2024 Homeworks Lab. Todos os direitos reservados.
-          </p>
+        {/* Google-style footer bar */}
+        <div className="border-t border-white/20 mt-12 pt-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            {/* Left - Links */}
+            <div className="flex flex-wrap items-center gap-6 text-sm">
+              <a href="#" className="text-white/70 hover:text-white transition-colors">Sobre a HomeWorks</a>
+              <a href="#" className="text-white/70 hover:text-white transition-colors">Privacidade</a>
+              <a href="#" className="text-white/70 hover:text-white transition-colors">Termos do site</a>
+              <a href="#" className="text-white/70 hover:text-white transition-colors">Termos da plataforma</a>
+            </div>
+
+            {/* Center - Sustainability */}
+            <div className="flex items-center gap-2 text-sm text-white/70">
+              <Leaf className="w-4 h-4 text-green-400" />
+              <span>Carbono neutro desde 2024</span>
+            </div>
+
+            {/* Right - Newsletter and Language */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <input 
+                  type="email" 
+                  placeholder="Subscrever newsletter"
+                  className="bg-white/10 border border-white/20 rounded px-3 py-1 text-sm text-white placeholder-white/50 focus:outline-none focus:border-white/40"
+                />
+                <button className="bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded text-sm transition-colors">
+                  Assinar
+                </button>
+              </div>
+              <div className="flex items-center gap-1 text-white/70 hover:text-white cursor-pointer">
+                <Globe className="w-4 h-4" />
+                <span className="text-sm">PT</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center mt-6 pt-4 border-t border-white/10">
+            <p className="text-white/60 text-sm">
+              © {new Date().getFullYear()} Homeworks Lab. Todos os direitos reservados.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
