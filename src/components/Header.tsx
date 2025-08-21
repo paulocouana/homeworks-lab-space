@@ -18,7 +18,7 @@ const Header = () => {
   const { translatedText: servicesText } = useTranslation("Serviços");
   const { translatedText: contactText } = useTranslation("Entre em Contacto com Nossa Equipa");
   const { translatedText: loginText } = useTranslation("Entrar");
-  const { translatedText: startNowText } = useTranslation("Começar");
+  const { translatedText: startNowText } = useTranslation("Começar Agora");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
