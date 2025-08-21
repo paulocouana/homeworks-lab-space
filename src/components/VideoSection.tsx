@@ -1,28 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import { useTranslations } from "@/hooks/useTranslations";
 
 const VideoSection = () => {
-  const texts = [
-    "Veja Como Funciona",
-    "Descubra como a Homeworks Lab está revolucionando os espaços de trabalho",
-    "Tour pelos Nossos Espaços",
-    "Conheça os ambientes que oferecemos para o seu trabalho",
-    "Ver Mais Vídeos"
-  ];
-  
-  const { translatedTexts } = useTranslations(texts);
-  const [seeHowItWorksText, discoverText, tourTitle, tourDescription, seeMoreVideosText] = translatedTexts;
-
   return (
     <section className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            {seeHowItWorksText}
+            Veja Como Funciona
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {discoverText}
+            Descubra como a Homeworks Lab está revolucionando os espaços de trabalho
           </p>
         </div>
 
@@ -42,10 +30,10 @@ const VideoSection = () => {
             <div className="absolute bottom-4 left-4 right-4">
               <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
                 <h3 className="font-semibold text-foreground mb-1">
-                  {tourTitle}
+                  Tour pelos Nossos Espaços
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {tourDescription}
+                  Conheça os ambientes que oferecemos para o seu trabalho
                 </p>
               </div>
             </div>
@@ -53,7 +41,7 @@ const VideoSection = () => {
 
           <div className="text-center mt-8">
             <Button variant="outline" size="lg">
-              {seeMoreVideosText}
+              Ver Mais Vídeos
             </Button>
           </div>
         </div>

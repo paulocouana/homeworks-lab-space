@@ -18,7 +18,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { useTranslations } from "@/hooks/useTranslations";
 
 const contactSchema = z.object({
   firstName: z.string().min(1, "Primeiro nome é obrigatório"),
@@ -36,26 +35,6 @@ type ContactFormData = z.infer<typeof contactSchema>;
 const Contacto = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  
-  const texts = [
-    "Entre em Contacto",
-    "Tem alguma pergunta? Adoraríamos ouvir de si. Envie-nos uma mensagem e responderemos o mais rápido possível.",
-    "Primeiro Nome",
-    "Último Nome",
-    "Email",
-    "Empresa",
-    "Tipo de Consulta",
-    "Vendas e Informações Gerais",
-    "Parcerias",
-    "Suporte Técnico",
-    "Outro",
-    "Mensagem",
-    "Enviar Mensagem",
-    "A Enviar..."
-  ];
-  
-  const { translatedTexts } = useTranslations(texts);
-  const [pageTitle, pageDescription, firstNameLabel, lastNameLabel, emailLabel, companyLabel, inquiryTypeLabel, salesLabel, partnershipLabel, supportLabel, otherLabel, messageLabel, sendButtonText, sendingText] = translatedTexts;
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -92,10 +71,10 @@ const Contacto = () => {
         <div className="container mx-auto px-4 max-w-2xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-foreground mb-4">
-              {pageTitle}
+              Entre em Contacto
             </h1>
             <p className="text-lg text-muted-foreground">
-              {pageDescription}
+              Tem alguma pergunta? Adoraríamos ouvir de si. Envie-nos uma mensagem e responderemos o mais rápido possível.
             </p>
           </div>
 
@@ -108,7 +87,7 @@ const Contacto = () => {
                     name="firstName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{firstNameLabel} *</FormLabel>
+                        <FormLabel>Primeiro Nome *</FormLabel>
                         <FormControl>
                           <Input placeholder="João" {...field} />
                         </FormControl>
@@ -122,7 +101,7 @@ const Contacto = () => {
                     name="lastName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{lastNameLabel} *</FormLabel>
+                        <FormLabel>Último Nome *</FormLabel>
                         <FormControl>
                           <Input placeholder="Silva" {...field} />
                         </FormControl>
@@ -137,7 +116,7 @@ const Contacto = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{emailLabel} *</FormLabel>
+                      <FormLabel>Email *</FormLabel>
                       <FormControl>
                         <Input placeholder="joao@exemplo.com" type="email" {...field} />
                       </FormControl>
@@ -151,7 +130,7 @@ const Contacto = () => {
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{companyLabel}</FormLabel>
+                      <FormLabel>Empresa</FormLabel>
                       <FormControl>
                         <Input placeholder="Nome da empresa" {...field} />
                       </FormControl>
@@ -165,7 +144,7 @@ const Contacto = () => {
                   name="inquiryType"
                   render={({ field }) => (
                     <FormItem className="space-y-3">
-                      <FormLabel>{inquiryTypeLabel} *</FormLabel>
+                      <FormLabel>Tipo de Consulta *</FormLabel>
                       <FormControl>
                         <RadioGroup
                           onValueChange={field.onChange}
@@ -174,19 +153,19 @@ const Contacto = () => {
                         >
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="sales" id="sales" />
-                            <Label htmlFor="sales">{salesLabel}</Label>
+                            <Label htmlFor="sales">Vendas e Informações Gerais</Label>
                           </div>
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="partnership" id="partnership" />
-                            <Label htmlFor="partnership">{partnershipLabel}</Label>
+                            <Label htmlFor="partnership">Parcerias</Label>
                           </div>
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="support" id="support" />
-                            <Label htmlFor="support">{supportLabel}</Label>
+                            <Label htmlFor="support">Suporte Técnico</Label>
                           </div>
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="other" id="other" />
-                            <Label htmlFor="other">{otherLabel}</Label>
+                            <Label htmlFor="other">Outro</Label>
                           </div>
                         </RadioGroup>
                       </FormControl>
@@ -200,7 +179,7 @@ const Contacto = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{messageLabel} *</FormLabel>
+                      <FormLabel>Mensagem *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Escreva a sua mensagem aqui..."
@@ -221,7 +200,7 @@ const Contacto = () => {
                     className="w-full"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? sendingText : sendButtonText}
+                    {isSubmitting ? "A Enviar..." : "Enviar Mensagem"}
                   </Button>
                 </div>
 

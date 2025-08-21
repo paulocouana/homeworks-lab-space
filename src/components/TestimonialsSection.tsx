@@ -1,38 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
-import { useTranslations } from "@/hooks/useTranslations";
 
 const TestimonialsSection = () => {
-  const texts = [
-    "Depoimentos de Clientes",
-    "Veja o que os nossos utilizadores dizem sobre a experiência Homeworks Lab",
-    "A Homeworks Lab transformou completamente a minha produtividade. O ambiente é perfeito para o trabalho criativo e as facilidades são excelentes.",
-    "Encontrei exactamente o que procurava: um espaço silencioso, bem equipado e com internet rápida. Recomendo a todos os profissionais remotos.",
-    "Designer Freelancer",
-    "Desenvolvedor",
-    "4.9/5 baseado em 200+ avaliações"
-  ];
-  
-  const { translatedTexts } = useTranslations(texts);
-  const [testimonialsTitle, testimonialsSubtitle, testimonial1, testimonial2, freelancerRole, developerRole, ratingText] = translatedTexts;
-
   const testimonials = [
     {
       name: "Ana Silva",
-      role: freelancerRole,
+      role: "Designer Freelancer",
       company: "Design Studio",
       avatar: "AS",
       rating: 5,
-      text: testimonial1
+      text: "A Homeworks Lab transformou completamente a minha produtividade. O ambiente é perfeito para o trabalho criativo e as facilidades são excelentes."
     },
     {
       name: "João Santos",
-      role: developerRole,
+      role: "Desenvolvedor",
       company: "Tech Solutions",
       avatar: "JS",
       rating: 5,
-      text: testimonial2
+      text: "Encontrei exactamente o que procurava: um espaço silencioso, bem equipado e com internet rápida. Recomendo a todos os profissionais remotos."
     }
   ];
 
@@ -47,10 +33,10 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            {testimonialsTitle}
+            Depoimentos de Clientes
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {testimonialsSubtitle}
+            Veja o que os nossos utilizadores dizem sobre a experiência Homeworks Lab
           </p>
         </div>
 
@@ -97,7 +83,7 @@ const TestimonialsSection = () => {
               {renderStars(5)}
             </div>
             <span className="text-sm font-medium text-muted-foreground">
-              {ratingText}
+              4.9/5 baseado em 200+ avaliações
             </span>
           </div>
         </div>

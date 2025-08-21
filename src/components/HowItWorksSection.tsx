@@ -1,43 +1,26 @@
 import { Search, Calendar, CreditCard, Building2 } from "lucide-react";
-import { useTranslations } from "@/hooks/useTranslations";
 
 const HowItWorksSection = () => {
-  const texts = [
-    "Como Funciona",
-    "Quatro passos simples para encontrar e reservar o seu espaço de trabalho ideal",
-    "Pesquise",
-    "Encontre o espaço ideal na sua localização preferida com os nossos filtros avançados.",
-    "Reserve",
-    "Escolha as datas e horários que melhor se adequam à sua agenda de trabalho.",
-    "Pague", 
-    "Efectue o pagamento de forma segura através de cartão, PayPal, Stripe ou carteiras móveis.",
-    "Trabalhe",
-    "Desfrute do seu espaço de trabalho reservado e concentre-se no que realmente importa."
-  ];
-  
-  const { translatedTexts } = useTranslations(texts);
-  const [sectionTitle, sectionDescription, searchTitle, searchDesc, bookTitle, bookDesc, payTitle, payDesc, workTitle, workDesc] = translatedTexts;
-
   const steps = [
     {
       icon: Search,
-      title: searchTitle,
-      description: searchDesc
+      title: "Pesquise",
+      description: "Encontre o espaço ideal na sua localização preferida com os nossos filtros avançados."
     },
     {
       icon: Calendar,
-      title: bookTitle,
-      description: bookDesc
+      title: "Reserve",
+      description: "Escolha as datas e horários que melhor se adequam à sua agenda de trabalho."
     },
     {
       icon: CreditCard,
-      title: payTitle,
-      description: payDesc
+      title: "Pague",
+      description: "Efectue o pagamento de forma segura através de cartão, PayPal, Stripe ou carteiras móveis."
     },
     {
       icon: Building2,
-      title: workTitle,
-      description: workDesc
+      title: "Trabalhe",
+      description: "Desfrute do seu espaço de trabalho reservado e concentre-se no que realmente importa."
     }
   ];
 
@@ -46,10 +29,10 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            {sectionTitle}
+            Como Funciona
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {sectionDescription}
+            Quatro passos simples para encontrar e reservar o seu espaço de trabalho ideal
           </p>
         </div>
 
