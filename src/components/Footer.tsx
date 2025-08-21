@@ -1,7 +1,36 @@
 import { Facebook, Twitter, Linkedin, Instagram, Leaf } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Footer = () => {
+  const { translatedText: description } = useTranslation("A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios em Portugal e Moçambique.");
+  const { translatedText: platformText } = useTranslation("Plataforma");
+  const { translatedText: howItWorksText } = useTranslation("Como Funciona");
+  const { translatedText: searchSpacesText } = useTranslation("Pesquisar Espaços");
+  const { translatedText: listSpaceText } = useTranslation("Listar Espaço");
+  const { translatedText: pricingText } = useTranslation("Preços");
+  const { translatedText: supportText } = useTranslation("Suporte");
+  const { translatedText: helpCenterText } = useTranslation("Centro de Ajuda");
+  const { translatedText: contactSupportText } = useTranslation("Contactar Suporte");
+  const { translatedText: termsOfServiceText } = useTranslation("Termos de Serviço");
+  const { translatedText: privacyPolicyText } = useTranslation("Política de Privacidade");
+  const { translatedText: engageText } = useTranslation("Engajar");
+  const { translatedText: contactUsText } = useTranslation("Entre em contacto");
+  const { translatedText: becomePartnerText } = useTranslation("Torne-se um parceiro");
+  const { translatedText: eventsText } = useTranslation("Eventos");
+  const { translatedText: podcastsText } = useTranslation("Podcasts");
+  const { translatedText: userResearchText } = useTranslation("Participar da pesquisa do usuário");
+  const { translatedText: hiringText } = useTranslation("Estamos contratando. Faça parte da equipa da HomeWorks");
+  const { translatedText: communityText } = useTranslation("Comunidade do HomeWorks");
+  const { translatedText: aboutText } = useTranslation("Sobre a HomeWorks");
+  const { translatedText: privacyText } = useTranslation("Privacidade");
+  const { translatedText: siteTermsText } = useTranslation("Termos do site");
+  const { translatedText: platformTermsText } = useTranslation("Termos da plataforma");
+  const { translatedText: carbonNeutralText } = useTranslation("Carbono neutro desde 2024");
+  const { translatedText: newsletterPlaceholder } = useTranslation("Subscrever newsletter");
+  const { translatedText: subscribeText } = useTranslation("Assinar");
+  const { translatedText: copyrightText } = useTranslation("Todos os direitos reservados.");
+
   return (
     <footer className="bg-primary-dark text-white py-16">
       <div className="container mx-auto px-4">
@@ -15,7 +44,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Homeworks Lab</span>
             </div>
             <p className="text-white/80 mb-4">
-              A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios em Portugal e Moçambique.
+              {description}
             </p>
             <div className="flex space-x-4">
               <Facebook className="w-5 h-5 text-white/60 hover:text-white cursor-pointer transition-colors" />
@@ -27,36 +56,36 @@ const Footer = () => {
 
           {/* Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Plataforma</h3>
+            <h3 className="text-lg font-semibold mb-4">{platformText}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Como Funciona</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Pesquisar Espaços</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Listar Espaço</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Preços</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{howItWorksText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{searchSpacesText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{listSpaceText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{pricingText}</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Suporte</h3>
+            <h3 className="text-lg font-semibold mb-4">{supportText}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Centro de Ajuda</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Contactar Suporte</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Termos de Serviço</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Política de Privacidade</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{helpCenterText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{contactSupportText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{termsOfServiceText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{privacyPolicyText}</a></li>
             </ul>
           </div>
 
           {/* Engajar */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Engajar</h3>
+            <h3 className="text-lg font-semibold mb-4">{engageText}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Entre em contacto</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Torne-se um parceiro</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Eventos</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Podcasts</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Participar da pesquisa do usuário</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Estamos contratando. Faça parte da equipa da HomeWorks</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Comunidade do HomeWorks</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{contactUsText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{becomePartnerText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{eventsText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{podcastsText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{userResearchText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{hiringText}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{communityText}</a></li>
             </ul>
           </div>
         </div>
@@ -66,16 +95,16 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             {/* Left - Links */}
             <div className="flex flex-wrap items-center gap-6 text-sm">
-              <a href="#" className="text-white/70 hover:text-white transition-colors">Sobre a HomeWorks</a>
-              <a href="#" className="text-white/70 hover:text-white transition-colors">Privacidade</a>
-              <a href="#" className="text-white/70 hover:text-white transition-colors">Termos do site</a>
-              <a href="#" className="text-white/70 hover:text-white transition-colors">Termos da plataforma</a>
+              <a href="#" className="text-white/70 hover:text-white transition-colors">{aboutText}</a>
+              <a href="#" className="text-white/70 hover:text-white transition-colors">{privacyText}</a>
+              <a href="#" className="text-white/70 hover:text-white transition-colors">{siteTermsText}</a>
+              <a href="#" className="text-white/70 hover:text-white transition-colors">{platformTermsText}</a>
             </div>
 
             {/* Center - Sustainability */}
             <div className="flex items-center gap-2 text-sm text-white/70">
               <Leaf className="w-4 h-4 text-green-400" />
-              <span>Carbono neutro desde 2024</span>
+              <span>{carbonNeutralText}</span>
             </div>
 
             {/* Right - Newsletter and Language */}
@@ -83,11 +112,11 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <input 
                   type="email" 
-                  placeholder="Subscrever newsletter"
+                  placeholder={newsletterPlaceholder}
                   className="bg-white/10 border border-white/20 rounded px-3 py-1 text-sm text-white placeholder-white/50 focus:outline-none focus:border-white/40"
                 />
                 <button className="bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded text-sm transition-colors">
-                  Assinar
+                  {subscribeText}
                 </button>
               </div>
               <LanguageSelector />
@@ -97,7 +126,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center mt-6 pt-4 border-t border-white/10">
             <p className="text-white/60 text-sm">
-              © {new Date().getFullYear()} Homeworks Lab. Todos os direitos reservados.
+              © {new Date().getFullYear()} Homeworks Lab. {copyrightText}
             </p>
           </div>
         </div>

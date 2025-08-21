@@ -1,16 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const VideoSection = () => {
+  const { translatedText: seeHowItWorksText } = useTranslation("Veja Como Funciona");
+  const { translatedText: discoverText } = useTranslation("Descubra como a Homeworks Lab está revolucionando os espaços de trabalho");
+  const { translatedText: tourTitle } = useTranslation("Tour pelos Nossos Espaços");
+  const { translatedText: tourDescription } = useTranslation("Conheça os ambientes que oferecemos para o seu trabalho");
+  const { translatedText: seeMoreVideosText } = useTranslation("Ver Mais Vídeos");
+
   return (
     <section className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Veja Como Funciona
+            {seeHowItWorksText}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Descubra como a Homeworks Lab está revolucionando os espaços de trabalho
+            {discoverText}
           </p>
         </div>
 
@@ -30,10 +37,10 @@ const VideoSection = () => {
             <div className="absolute bottom-4 left-4 right-4">
               <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
                 <h3 className="font-semibold text-foreground mb-1">
-                  Tour pelos Nossos Espaços
+                  {tourTitle}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  Conheça os ambientes que oferecemos para o seu trabalho
+                  {tourDescription}
                 </p>
               </div>
             </div>
@@ -41,7 +48,7 @@ const VideoSection = () => {
 
           <div className="text-center mt-8">
             <Button variant="outline" size="lg">
-              Ver Mais Vídeos
+              {seeMoreVideosText}
             </Button>
           </div>
         </div>

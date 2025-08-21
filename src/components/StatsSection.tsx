@@ -1,17 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, Users } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const StatsSection = () => {
+  const { translatedText: titleText } = useTranslation("Números que fazem a diferença no trabalho");
+  const { translatedText: subtitleText } = useTranslation("Resultados comprovados que mostram o impacto da Homeworks Lab na produtividade");
+  const { translatedText: productivityText } = useTranslation("Aumento na produtividade reportado pelos utilizadores");
+  const { translatedText: activeProfessionalsText } = useTranslation("Profissionais activos utilizando os nossos espaços");
+  const { translatedText: joinProfessionalsText } = useTranslation("Junte-se aos profissionais que escolheram a excelência");
+  const { translatedText: transformWorkText } = useTranslation("Transforme a sua forma de trabalhar. Encontre o ambiente perfeito para alcançar os seus objectivos profissionais e pessoais.");
+  const { translatedText: findSpacesText } = useTranslation("Encontrar Espaços");
+  const { translatedText: learnMoreText } = useTranslation("Saber Mais");
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Números que fazem a diferença no trabalho
+            {titleText}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Resultados comprovados que mostram o impacto da Homeworks Lab na produtividade
+            {subtitleText}
           </p>
         </div>
 
@@ -29,7 +39,7 @@ const StatsSection = () => {
                       87%
                     </div>
                     <p className="text-muted-foreground">
-                      Aumento na produtividade reportado pelos utilizadores
+                      {productivityText}
                     </p>
                   </div>
                 </div>
@@ -47,7 +57,7 @@ const StatsSection = () => {
                       2,500+
                     </div>
                     <p className="text-muted-foreground">
-                      Profissionais activos utilizando os nossos espaços
+                      {activeProfessionalsText}
                     </p>
                   </div>
                 </div>
@@ -58,18 +68,17 @@ const StatsSection = () => {
           {/* CTA Content */}
           <div className="text-center lg:text-left">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-              Junte-se aos profissionais que escolheram a excelência
+              {joinProfessionalsText}
             </h3>
             <p className="text-lg text-muted-foreground mb-8">
-              Transforme a sua forma de trabalhar. Encontre o ambiente perfeito para 
-              alcançar os seus objectivos profissionais e pessoais.
+              {transformWorkText}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="min-w-[180px]">
-                Encontrar Espaços
+                {findSpacesText}
               </Button>
               <Button variant="outline" size="lg" className="min-w-[180px]">
-                Saber Mais
+                {learnMoreText}
               </Button>
             </div>
           </div>
