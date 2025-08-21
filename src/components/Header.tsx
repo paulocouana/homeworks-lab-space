@@ -6,19 +6,24 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Icon } from "@iconify/react";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const Header = () => {
-  const { translatedText: overviewText } = useTranslation("Visão Geral");
-  const { translatedText: howItWorksText } = useTranslation("Como Funciona");
-  const { translatedText: forOwnersText } = useTranslation("Para Proprietários");
-  const { translatedText: forUsersText } = useTranslation("Para Utilizadores");
-  const { translatedText: pricingText } = useTranslation("Preços");
-  const { translatedText: solutionsText } = useTranslation("Soluções");
-  const { translatedText: servicesText } = useTranslation("Serviços");
-  const { translatedText: contactText } = useTranslation("Entre em Contacto com Nossa Equipa");
-  const { translatedText: loginText } = useTranslation("Entrar");
-  const { translatedText: startNowText } = useTranslation("Começar");
+  const texts = [
+    "Visão Geral",
+    "Como Funciona", 
+    "Para Proprietários",
+    "Para Utilizadores",
+    "Preços",
+    "Soluções",
+    "Serviços",
+    "Entre em Contacto com Nossa Equipa",
+    "Entrar",
+    "Começar"
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [overviewText, howItWorksText, forOwnersText, forUsersText, pricingText, solutionsText, servicesText, contactText, loginText, startNowText] = translatedTexts;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">

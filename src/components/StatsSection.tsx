@@ -1,17 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, Users } from "lucide-react";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const StatsSection = () => {
-  const { translatedText: titleText } = useTranslation("Números que fazem a diferença no trabalho");
-  const { translatedText: subtitleText } = useTranslation("Resultados comprovados que mostram o impacto da Homeworks Lab na produtividade");
-  const { translatedText: productivityText } = useTranslation("Aumento na produtividade reportado pelos utilizadores");
-  const { translatedText: activeProfessionalsText } = useTranslation("Profissionais activos utilizando os nossos espaços");
-  const { translatedText: joinProfessionalsText } = useTranslation("Junte-se aos profissionais que escolheram a excelência");
-  const { translatedText: transformWorkText } = useTranslation("Transforme a sua forma de trabalhar. Encontre o ambiente perfeito para alcançar os seus objectivos profissionais e pessoais.");
-  const { translatedText: findSpacesText } = useTranslation("Encontrar Espaços");
-  const { translatedText: learnMoreText } = useTranslation("Saber Mais");
+  const texts = [
+    "Números que fazem a diferença no trabalho",
+    "Resultados comprovados que mostram o impacto da Homeworks Lab na produtividade",
+    "Aumento na produtividade reportado pelos utilizadores",
+    "Profissionais activos utilizando os nossos espaços", 
+    "Junte-se aos profissionais que escolheram a excelência",
+    "Transforme a sua forma de trabalhar. Encontre o ambiente perfeito para alcançar os seus objectivos profissionais e pessoais.",
+    "Encontrar Espaços",
+    "Saber Mais"
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [titleText, subtitleText, productivityText, activeProfessionalsText, joinProfessionalsText, transformWorkText, findSpacesText, learnMoreText] = translatedTexts;
 
   return (
     <section className="py-20">

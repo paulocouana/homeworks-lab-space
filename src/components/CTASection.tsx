@@ -1,11 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const CTASection = () => {
-  const { translatedText: readyToStartText } = useTranslation("Pronto para Começar?");
-  const { translatedText: joinUsText } = useTranslation("Junte-se a centenas de proprietários e utilizadores que já confiam na Homeworks Lab para as suas necessidades de espaços de trabalho.");
-  const { translatedText: startAsUserText } = useTranslation("Começar como Utilizador");
-  const { translatedText: listMySpaceText } = useTranslation("Listar o Meu Espaço");
+  const texts = [
+    "Pronto para Começar?",
+    "Junte-se a centenas de proprietários e utilizadores que já confiam na Homeworks Lab para as suas necessidades de espaços de trabalho.",
+    "Começar como Utilizador",
+    "Listar o Meu Espaço"
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [readyToStartText, joinUsText, startAsUserText, listMySpaceText] = translatedTexts;
 
   return (
     <section className="py-20 bg-gradient-primary relative overflow-hidden">

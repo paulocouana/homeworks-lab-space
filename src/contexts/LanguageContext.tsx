@@ -82,10 +82,77 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   }, [currentLanguage]);
 
+  const translateMany = useCallback(async (texts: string[], targetLang?: LanguageCode): Promise<string[]> => {
+    const target = targetLang || currentLanguage;
+    
+    // Return original texts for Portuguese
+    if (target === 'pt') {
+      return texts;
+    }
+
+    // Check cache for each text and separate cached from uncached
+    const results: string[] = new Array(texts.length);
+    const uncachedIndices: number[] = [];
+    const uncachedTexts: string[] = [];
+
+    texts.forEach((text, index) => {
+      const cached = getCachedTranslation(text, target);
+      if (cached) {
+        results[index] = cached;
+      } else {
+        uncachedIndices.push(index);
+        uncachedTexts.push(text);
+      }
+    });
+
+    // If all texts are cached, return results
+    if (uncachedTexts.length === 0) {
+      return results;
+    }
+
+    try {
+      setIsTranslating(true);
+      
+      const { data, error } = await supabase.functions.invoke('translate-text', {
+        body: { texts: uncachedTexts, targetLanguage: target }
+      });
+
+      if (error) {
+        console.error('Batch translation error:', error);
+        // Fallback to original texts for uncached items
+        uncachedIndices.forEach((index, i) => {
+          results[index] = uncachedTexts[i];
+        });
+        return results;
+      }
+
+      const translatedTexts = data.translatedTexts || uncachedTexts;
+      
+      // Cache the translations and fill results
+      uncachedIndices.forEach((index, i) => {
+        const translatedText = translatedTexts[i] || uncachedTexts[i];
+        setCachedTranslation(uncachedTexts[i], target, translatedText);
+        results[index] = translatedText;
+      });
+      
+      return results;
+    } catch (error) {
+      console.error('Batch translation failed:', error);
+      // Fallback to original texts for uncached items
+      uncachedIndices.forEach((index, i) => {
+        results[index] = uncachedTexts[i];
+      });
+      return results;
+    } finally {
+      setIsTranslating(false);
+    }
+  }, [currentLanguage]);
+
   const value: LanguageContextType = {
     currentLanguage,
     setLanguage,
     translate,
+    translateMany,
     isTranslating,
     availableLanguages,
   };

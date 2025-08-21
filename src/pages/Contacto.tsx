@@ -18,7 +18,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const contactSchema = z.object({
   firstName: z.string().min(1, "Primeiro nome é obrigatório"),
@@ -37,20 +37,25 @@ const Contacto = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   
-  const { translatedText: pageTitle } = useTranslation("Entre em Contacto");
-  const { translatedText: pageDescription } = useTranslation("Tem alguma pergunta? Adoraríamos ouvir de si. Envie-nos uma mensagem e responderemos o mais rápido possível.");
-  const { translatedText: firstNameLabel } = useTranslation("Primeiro Nome");
-  const { translatedText: lastNameLabel } = useTranslation("Último Nome");
-  const { translatedText: emailLabel } = useTranslation("Email");
-  const { translatedText: companyLabel } = useTranslation("Empresa");
-  const { translatedText: inquiryTypeLabel } = useTranslation("Tipo de Consulta");
-  const { translatedText: salesLabel } = useTranslation("Vendas e Informações Gerais");
-  const { translatedText: partnershipLabel } = useTranslation("Parcerias");
-  const { translatedText: supportLabel } = useTranslation("Suporte Técnico");
-  const { translatedText: otherLabel } = useTranslation("Outro");
-  const { translatedText: messageLabel } = useTranslation("Mensagem");
-  const { translatedText: sendButtonText } = useTranslation("Enviar Mensagem");
-  const { translatedText: sendingText } = useTranslation("A Enviar...");
+  const texts = [
+    "Entre em Contacto",
+    "Tem alguma pergunta? Adoraríamos ouvir de si. Envie-nos uma mensagem e responderemos o mais rápido possível.",
+    "Primeiro Nome",
+    "Último Nome",
+    "Email",
+    "Empresa",
+    "Tipo de Consulta",
+    "Vendas e Informações Gerais",
+    "Parcerias",
+    "Suporte Técnico",
+    "Outro",
+    "Mensagem",
+    "Enviar Mensagem",
+    "A Enviar..."
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [pageTitle, pageDescription, firstNameLabel, lastNameLabel, emailLabel, companyLabel, inquiryTypeLabel, salesLabel, partnershipLabel, supportLabel, otherLabel, messageLabel, sendButtonText, sendingText] = translatedTexts;
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),

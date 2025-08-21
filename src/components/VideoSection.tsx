@@ -1,13 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const VideoSection = () => {
-  const { translatedText: seeHowItWorksText } = useTranslation("Veja Como Funciona");
-  const { translatedText: discoverText } = useTranslation("Descubra como a Homeworks Lab está revolucionando os espaços de trabalho");
-  const { translatedText: tourTitle } = useTranslation("Tour pelos Nossos Espaços");
-  const { translatedText: tourDescription } = useTranslation("Conheça os ambientes que oferecemos para o seu trabalho");
-  const { translatedText: seeMoreVideosText } = useTranslation("Ver Mais Vídeos");
+  const texts = [
+    "Veja Como Funciona",
+    "Descubra como a Homeworks Lab está revolucionando os espaços de trabalho",
+    "Tour pelos Nossos Espaços",
+    "Conheça os ambientes que oferecemos para o seu trabalho",
+    "Ver Mais Vídeos"
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [seeHowItWorksText, discoverText, tourTitle, tourDescription, seeMoreVideosText] = translatedTexts;
 
   return (
     <section className="py-20 bg-gradient-subtle">

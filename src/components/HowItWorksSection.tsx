@@ -1,17 +1,22 @@
 import { Search, Calendar, CreditCard, Building2 } from "lucide-react";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const HowItWorksSection = () => {
-  const { translatedText: sectionTitle } = useTranslation("Como Funciona");
-  const { translatedText: sectionDescription } = useTranslation("Quatro passos simples para encontrar e reservar o seu espaço de trabalho ideal");
-  const { translatedText: searchTitle } = useTranslation("Pesquise");
-  const { translatedText: searchDesc } = useTranslation("Encontre o espaço ideal na sua localização preferida com os nossos filtros avançados.");
-  const { translatedText: bookTitle } = useTranslation("Reserve");
-  const { translatedText: bookDesc } = useTranslation("Escolha as datas e horários que melhor se adequam à sua agenda de trabalho.");
-  const { translatedText: payTitle } = useTranslation("Pague");
-  const { translatedText: payDesc } = useTranslation("Efectue o pagamento de forma segura através de cartão, PayPal, Stripe ou carteiras móveis.");
-  const { translatedText: workTitle } = useTranslation("Trabalhe");
-  const { translatedText: workDesc } = useTranslation("Desfrute do seu espaço de trabalho reservado e concentre-se no que realmente importa.");
+  const texts = [
+    "Como Funciona",
+    "Quatro passos simples para encontrar e reservar o seu espaço de trabalho ideal",
+    "Pesquise",
+    "Encontre o espaço ideal na sua localização preferida com os nossos filtros avançados.",
+    "Reserve",
+    "Escolha as datas e horários que melhor se adequam à sua agenda de trabalho.",
+    "Pague", 
+    "Efectue o pagamento de forma segura através de cartão, PayPal, Stripe ou carteiras móveis.",
+    "Trabalhe",
+    "Desfrute do seu espaço de trabalho reservado e concentre-se no que realmente importa."
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [sectionTitle, sectionDescription, searchTitle, searchDesc, bookTitle, bookDesc, payTitle, payDesc, workTitle, workDesc] = translatedTexts;
 
   const steps = [
     {

@@ -1,17 +1,22 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-coworking.jpg";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const HeroSection = () => {
-  const { translatedText: title1 } = useTranslation("Encontre o Espaço de Trabalho");
-  const { translatedText: title2 } = useTranslation("Perfeito para Si");
-  const { translatedText: subtitle } = useTranslation("A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios. Conectamos proprietários e profissionais de forma simples e eficiente.");
-  const { translatedText: findSpacesText } = useTranslation("Encontrar Espaços");
-  const { translatedText: listSpaceText } = useTranslation("Listar o Meu Espaço");
-  const { translatedText: spacesAvailableText } = useTranslation("Espaços Disponíveis");
-  const { translatedText: activeUsersText } = useTranslation("Utilizadores Activos");
-  const { translatedText: citiesText } = useTranslation("Cidades");
-  const { translatedText: altText } = useTranslation("Espaços de Coworking Modernos");
+  const texts = [
+    "Encontre o Espaço de Trabalho",
+    "Perfeito para Si", 
+    "A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios. Conectamos proprietários e profissionais de forma simples e eficiente.",
+    "Encontrar Espaços",
+    "Listar o Meu Espaço",
+    "Espaços Disponíveis",
+    "Utilizadores Activos",
+    "Cidades",
+    "Espaços de Coworking Modernos"
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [title1, title2, subtitle, findSpacesText, listSpaceText, spacesAvailableText, activeUsersText, citiesText, altText] = translatedTexts;
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

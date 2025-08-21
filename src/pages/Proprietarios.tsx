@@ -2,19 +2,24 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, TrendingUp, Users, DollarSign } from "lucide-react";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const Proprietarios = () => {
-  const { translatedText: pageTitle } = useTranslation("Para Proprietários de Espaços");
-  const { translatedText: pageDescription } = useTranslation("Transforme o seu espaço numa fonte de receita constante. Ofereça aos profissionais o ambiente ideal para trabalhar.");
-  const { translatedText: dashboardTitle } = useTranslation("Dashboard Completo");
-  const { translatedText: dashboardDesc } = useTranslation("Gerencie seus espaços, reservas e receitas em um painel intuitivo e completo.");
-  const { translatedText: paymentsTitle } = useTranslation("Pagamentos Seguros");
-  const { translatedText: paymentsDesc } = useTranslation("Receba pagamentos de forma segura e automática através de múltiplas opções.");
-  const { translatedText: usersTitle } = useTranslation("Gestão de Utilizadores");
-  const { translatedText: usersDesc } = useTranslation("Gerencie reservas e comunique directamente com os seus clientes.");
-  const { translatedText: revenueTitle } = useTranslation("Maximize Receitas");
-  const { translatedText: revenueDesc } = useTranslation("Optimize a ocupação do seu espaço e aumente os lucros.");
+  const texts = [
+    "Para Proprietários de Espaços",
+    "Transforme o seu espaço numa fonte de receita constante. Ofereça aos profissionais o ambiente ideal para trabalhar.",
+    "Dashboard Completo",
+    "Gerencie seus espaços, reservas e receitas em um painel intuitivo e completo.",
+    "Pagamentos Seguros",
+    "Receba pagamentos de forma segura e automática através de múltiplas opções.",
+    "Gestão de Utilizadores",
+    "Gerencie reservas e comunique directamente com os seus clientes.",
+    "Maximize Receitas",
+    "Optimize a ocupação do seu espaço e aumente os lucros."
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [pageTitle, pageDescription, dashboardTitle, dashboardDesc, paymentsTitle, paymentsDesc, usersTitle, usersDesc, revenueTitle, revenueDesc] = translatedTexts;
 
   const ownerFeatures = [
     {

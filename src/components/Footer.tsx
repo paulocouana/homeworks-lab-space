@@ -1,35 +1,40 @@
 import { Facebook, Twitter, Linkedin, Instagram, Leaf } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const Footer = () => {
-  const { translatedText: description } = useTranslation("A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios em Portugal e Moçambique.");
-  const { translatedText: platformText } = useTranslation("Plataforma");
-  const { translatedText: howItWorksText } = useTranslation("Como Funciona");
-  const { translatedText: searchSpacesText } = useTranslation("Pesquisar Espaços");
-  const { translatedText: listSpaceText } = useTranslation("Listar Espaço");
-  const { translatedText: pricingText } = useTranslation("Preços");
-  const { translatedText: supportText } = useTranslation("Suporte");
-  const { translatedText: helpCenterText } = useTranslation("Centro de Ajuda");
-  const { translatedText: contactSupportText } = useTranslation("Contactar Suporte");
-  const { translatedText: termsOfServiceText } = useTranslation("Termos de Serviço");
-  const { translatedText: privacyPolicyText } = useTranslation("Política de Privacidade");
-  const { translatedText: engageText } = useTranslation("Engajar");
-  const { translatedText: contactUsText } = useTranslation("Entre em contacto");
-  const { translatedText: becomePartnerText } = useTranslation("Torne-se um parceiro");
-  const { translatedText: eventsText } = useTranslation("Eventos");
-  const { translatedText: podcastsText } = useTranslation("Podcasts");
-  const { translatedText: userResearchText } = useTranslation("Participar da pesquisa do usuário");
-  const { translatedText: hiringText } = useTranslation("Estamos contratando. Faça parte da equipa da HomeWorks");
-  const { translatedText: communityText } = useTranslation("Comunidade do HomeWorks");
-  const { translatedText: aboutText } = useTranslation("Sobre a HomeWorks");
-  const { translatedText: privacyText } = useTranslation("Privacidade");
-  const { translatedText: siteTermsText } = useTranslation("Termos do site");
-  const { translatedText: platformTermsText } = useTranslation("Termos da plataforma");
-  const { translatedText: carbonNeutralText } = useTranslation("Carbono neutro desde 2024");
-  const { translatedText: newsletterPlaceholder } = useTranslation("Subscrever newsletter");
-  const { translatedText: subscribeText } = useTranslation("Assinar");
-  const { translatedText: copyrightText } = useTranslation("Todos os direitos reservados.");
+  const texts = [
+    "A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios em Portugal e Moçambique.",
+    "Plataforma",
+    "Como Funciona",
+    "Pesquisar Espaços", 
+    "Listar Espaço",
+    "Preços",
+    "Suporte",
+    "Centro de Ajuda",
+    "Contactar Suporte",
+    "Termos de Serviço",
+    "Política de Privacidade",
+    "Engajar",
+    "Entre em contacto",
+    "Torne-se um parceiro",
+    "Eventos",
+    "Podcasts",
+    "Participar da pesquisa do usuário",
+    "Estamos contratando. Faça parte da equipa da HomeWorks",
+    "Comunidade do HomeWorks",
+    "Sobre a HomeWorks",
+    "Privacidade",
+    "Termos do site",
+    "Termos da plataforma",
+    "Carbono neutro desde 2024",
+    "Subscrever newsletter",
+    "Assinar",
+    "Todos os direitos reservados."
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [description, platformText, howItWorksText, searchSpacesText, listSpaceText, pricingText, supportText, helpCenterText, contactSupportText, termsOfServiceText, privacyPolicyText, engageText, contactUsText, becomePartnerText, eventsText, podcastsText, userResearchText, hiringText, communityText, aboutText, privacyText, siteTermsText, platformTermsText, carbonNeutralText, newsletterPlaceholder, subscribeText, copyrightText] = translatedTexts;
 
   return (
     <footer className="bg-primary-dark text-white py-16">

@@ -12,13 +12,16 @@ serve(async (req) => {
   }
 
   try {
-    const { text, targetLanguage } = await req.json();
+    const { text, texts, targetLanguage } = await req.json();
     
-    if (!text || !targetLanguage) {
-      throw new Error('Text and target language are required');
+    // Support both single text and batch texts
+    const textsToTranslate = texts || [text];
+    
+    if (!textsToTranslate || textsToTranslate.length === 0 || !targetLanguage) {
+      throw new Error('Text(s) and target language are required');
     }
 
-    console.log(`Translating "${text}" to ${targetLanguage}`);
+    console.log(`Translating ${textsToTranslate.length} text(s) to ${targetLanguage}`);
 
     // Get Google Translate API key from environment
     const googleApiKey = Deno.env.get('GOOGLE_TRANSLATE_API_KEY');
@@ -27,24 +30,25 @@ serve(async (req) => {
       throw new Error('Google Translate API key not configured');
     }
 
-    // If target language is Portuguese, return original text
+    // If target language is Portuguese, return original texts
     if (targetLanguage === 'pt') {
+      const result = texts ? { translatedTexts: textsToTranslate } : { translatedText: textsToTranslate[0] };
       return new Response(
-        JSON.stringify({ translatedText: text }),
+        JSON.stringify(result),
         {
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         }
       );
     }
 
-    // Call Google Translate API
+    // Call Google Translate API with batch support
     const response = await fetch('https://translation.googleapis.com/language/translate/v2', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        q: text,
+        q: textsToTranslate,
         source: 'pt',
         target: targetLanguage,
         format: 'text',
@@ -59,12 +63,20 @@ serve(async (req) => {
     }
 
     const data = await response.json();
-    const translatedText = data.data?.translations?.[0]?.translatedText || text;
+    const translations = data.data?.translations || [];
+    
+    // Extract translated texts
+    const translatedTexts = translations.map((t: any, index: number) => 
+      t.translatedText || textsToTranslate[index]
+    );
 
-    console.log(`Translation successful: "${translatedText}"`);
+    console.log(`Translation successful: ${translatedTexts.length} text(s) translated`);
+
+    // Return appropriate format based on request type
+    const result = texts ? { translatedTexts } : { translatedText: translatedTexts[0] };
 
     return new Response(
-      JSON.stringify({ translatedText }),
+      JSON.stringify(result),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       }

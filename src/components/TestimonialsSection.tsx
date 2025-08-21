@@ -1,16 +1,21 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const TestimonialsSection = () => {
-  const { translatedText: testimonialsTitle } = useTranslation("Depoimentos de Clientes");
-  const { translatedText: testimonialsSubtitle } = useTranslation("Veja o que os nossos utilizadores dizem sobre a experiência Homeworks Lab");
-  const { translatedText: testimonial1 } = useTranslation("A Homeworks Lab transformou completamente a minha produtividade. O ambiente é perfeito para o trabalho criativo e as facilidades são excelentes.");
-  const { translatedText: testimonial2 } = useTranslation("Encontrei exactamente o que procurava: um espaço silencioso, bem equipado e com internet rápida. Recomendo a todos os profissionais remotos.");
-  const { translatedText: freelancerRole } = useTranslation("Designer Freelancer");
-  const { translatedText: developerRole } = useTranslation("Desenvolvedor");
-  const { translatedText: ratingText } = useTranslation("4.9/5 baseado em 200+ avaliações");
+  const texts = [
+    "Depoimentos de Clientes",
+    "Veja o que os nossos utilizadores dizem sobre a experiência Homeworks Lab",
+    "A Homeworks Lab transformou completamente a minha produtividade. O ambiente é perfeito para o trabalho criativo e as facilidades são excelentes.",
+    "Encontrei exactamente o que procurava: um espaço silencioso, bem equipado e com internet rápida. Recomendo a todos os profissionais remotos.",
+    "Designer Freelancer",
+    "Desenvolvedor",
+    "4.9/5 baseado em 200+ avaliações"
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [testimonialsTitle, testimonialsSubtitle, testimonial1, testimonial2, freelancerRole, developerRole, ratingText] = translatedTexts;
 
   const testimonials = [
     {

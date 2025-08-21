@@ -2,23 +2,28 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, Smartphone, Zap, Clock, Users, Calendar } from "lucide-react";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const Utilizadores = () => {
-  const { translatedText: pageTitle } = useTranslation("Para Profissionais e Estudantes");
-  const { translatedText: pageDescription } = useTranslation("Encontre o espaço perfeito para o seu trabalho. Produtividade e flexibilidade ao seu alcance.");
-  const { translatedText: searchTitle } = useTranslation("Pesquisa Avançada");
-  const { translatedText: searchDesc } = useTranslation("Encontre espaços por localização, comodidades, preço e disponibilidade.");
-  const { translatedText: paymentsTitle } = useTranslation("Múltiplos Pagamentos");
-  const { translatedText: paymentsDesc } = useTranslation("Pague com cartão, PayPal, Stripe, M-Pesa, mKesh ou e-Mola.");
-  const { translatedText: bookingTitle } = useTranslation("Reserva Instantânea");
-  const { translatedText: bookingDesc } = useTranslation("Reserve espaços em tempo real com confirmação imediata.");
-  const { translatedText: flexibilityTitle } = useTranslation("Flexibilidade Total");
-  const { translatedText: flexibilityDesc } = useTranslation("Reserve por horas, dias ou meses. Adapta-se às suas necessidades de trabalho.");
-  const { translatedText: communityTitle } = useTranslation("Comunidade");
-  const { translatedText: communityDesc } = useTranslation("Conecte-se com outros profissionais e faça networking de qualidade.");
-  const { translatedText: eventsTitle } = useTranslation("Eventos");
-  const { translatedText: eventsDesc } = useTranslation("Participe de eventos de networking e mais.");
+  const texts = [
+    "Para Profissionais e Estudantes",
+    "Encontre o espaço perfeito para o seu trabalho. Produtividade e flexibilidade ao seu alcance.",
+    "Pesquisa Avançada",
+    "Encontre espaços por localização, comodidades, preço e disponibilidade.",
+    "Múltiplos Pagamentos",
+    "Pague com cartão, PayPal, Stripe, M-Pesa, mKesh ou e-Mola.",
+    "Reserva Instantânea",
+    "Reserve espaços em tempo real com confirmação imediata.",
+    "Flexibilidade Total",
+    "Reserve por horas, dias ou meses. Adapta-se às suas necessidades de trabalho.",
+    "Comunidade",
+    "Conecte-se com outros profissionais e faça networking de qualidade.",
+    "Eventos",
+    "Participe de eventos de networking e mais."
+  ];
+  
+  const { translatedTexts } = useTranslations(texts);
+  const [pageTitle, pageDescription, searchTitle, searchDesc, paymentsTitle, paymentsDesc, bookingTitle, bookingDesc, flexibilityTitle, flexibilityDesc, communityTitle, communityDesc, eventsTitle, eventsDesc] = translatedTexts;
 
   const userFeatures = [
     {
