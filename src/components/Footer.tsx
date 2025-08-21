@@ -1,4 +1,5 @@
-import { Facebook, Twitter, Linkedin, Instagram, Leaf, Globe } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Leaf } from "lucide-react";
+import LanguageSelector from "./LanguageSelector";
 
 const Footer = () => {
   return (
@@ -89,10 +90,7 @@ const Footer = () => {
                   Assinar
                 </button>
               </div>
-              <div className="flex items-center gap-1 text-white/70 hover:text-white cursor-pointer">
-                <Globe className="w-4 h-4" />
-                <span className="text-sm">PT</span>
-              </div>
+              <LanguageSelector />
             </div>
           </div>
 
