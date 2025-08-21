@@ -1,26 +1,38 @@
 import { Search, Calendar, CreditCard, Building2 } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const HowItWorksSection = () => {
+  const { translatedText: sectionTitle } = useTranslation("Como Funciona");
+  const { translatedText: sectionDescription } = useTranslation("Quatro passos simples para encontrar e reservar o seu espaço de trabalho ideal");
+  const { translatedText: searchTitle } = useTranslation("Pesquise");
+  const { translatedText: searchDesc } = useTranslation("Encontre o espaço ideal na sua localização preferida com os nossos filtros avançados.");
+  const { translatedText: bookTitle } = useTranslation("Reserve");
+  const { translatedText: bookDesc } = useTranslation("Escolha as datas e horários que melhor se adequam à sua agenda de trabalho.");
+  const { translatedText: payTitle } = useTranslation("Pague");
+  const { translatedText: payDesc } = useTranslation("Efectue o pagamento de forma segura através de cartão, PayPal, Stripe ou carteiras móveis.");
+  const { translatedText: workTitle } = useTranslation("Trabalhe");
+  const { translatedText: workDesc } = useTranslation("Desfrute do seu espaço de trabalho reservado e concentre-se no que realmente importa.");
+
   const steps = [
     {
       icon: Search,
-      title: "Pesquise",
-      description: "Encontre o espaço ideal na sua localização preferida com os nossos filtros avançados."
+      title: searchTitle,
+      description: searchDesc
     },
     {
       icon: Calendar,
-      title: "Reserve",
-      description: "Escolha as datas e horários que melhor se adequam à sua agenda de trabalho."
+      title: bookTitle,
+      description: bookDesc
     },
     {
       icon: CreditCard,
-      title: "Pague",
-      description: "Efectue o pagamento de forma segura através de cartão, PayPal, Stripe ou carteiras móveis."
+      title: payTitle,
+      description: payDesc
     },
     {
       icon: Building2,
-      title: "Trabalhe",
-      description: "Desfrute do seu espaço de trabalho reservado e concentre-se no que realmente importa."
+      title: workTitle,
+      description: workDesc
     }
   ];
 
@@ -29,10 +41,10 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Como Funciona
+            {sectionTitle}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Quatro passos simples para encontrar e reservar o seu espaço de trabalho ideal
+            {sectionDescription}
           </p>
         </div>
 

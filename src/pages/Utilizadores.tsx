@@ -2,38 +2,54 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, Smartphone, Zap, Clock, Users, Calendar } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Utilizadores = () => {
+  const { translatedText: pageTitle } = useTranslation("Para Profissionais e Estudantes");
+  const { translatedText: pageDescription } = useTranslation("Encontre o espaço perfeito para o seu trabalho. Produtividade e flexibilidade ao seu alcance.");
+  const { translatedText: searchTitle } = useTranslation("Pesquisa Avançada");
+  const { translatedText: searchDesc } = useTranslation("Encontre espaços por localização, comodidades, preço e disponibilidade.");
+  const { translatedText: paymentsTitle } = useTranslation("Múltiplos Pagamentos");
+  const { translatedText: paymentsDesc } = useTranslation("Pague com cartão, PayPal, Stripe, M-Pesa, mKesh ou e-Mola.");
+  const { translatedText: bookingTitle } = useTranslation("Reserva Instantânea");
+  const { translatedText: bookingDesc } = useTranslation("Reserve espaços em tempo real com confirmação imediata.");
+  const { translatedText: flexibilityTitle } = useTranslation("Flexibilidade Total");
+  const { translatedText: flexibilityDesc } = useTranslation("Reserve por horas, dias ou meses. Adapta-se às suas necessidades de trabalho.");
+  const { translatedText: communityTitle } = useTranslation("Comunidade");
+  const { translatedText: communityDesc } = useTranslation("Conecte-se com outros profissionais e faça networking de qualidade.");
+  const { translatedText: eventsTitle } = useTranslation("Eventos");
+  const { translatedText: eventsDesc } = useTranslation("Participe de eventos de networking e mais.");
+
   const userFeatures = [
     {
       icon: Search,
-      title: "Pesquisa Avançada",
-      description: "Encontre espaços por localização, comodidades, preço e disponibilidade."
+      title: searchTitle,
+      description: searchDesc
     },
     {
       icon: Smartphone,
-      title: "Múltiplos Pagamentos",
-      description: "Pague com cartão, PayPal, Stripe, M-Pesa, mKesh ou e-Mola."
+      title: paymentsTitle,
+      description: paymentsDesc
     },
     {
       icon: Zap,
-      title: "Reserva Instantânea",
-      description: "Reserve espaços em tempo real com confirmação imediata."
+      title: bookingTitle,
+      description: bookingDesc
     },
     {
       icon: Clock,
-      title: "Flexibilidade Total",
-      description: "Reserve por horas, dias ou meses. Adapta-se às suas necessidades de trabalho."
+      title: flexibilityTitle,
+      description: flexibilityDesc
     },
     {
       icon: Users,
-      title: "Comunidade",
-      description: "Conecte-se com outros profissionais e faça networking de qualidade."
+      title: communityTitle,
+      description: communityDesc
     },
     {
       icon: Calendar,
-      title: "Eventos",
-      description: "Participe de eventos de networking e mais."
+      title: eventsTitle,
+      description: eventsDesc
     }
   ];
 
@@ -45,11 +61,10 @@ const Utilizadores = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Para Profissionais e Estudantes
+                {pageTitle}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Encontre o espaço perfeito para o seu trabalho. 
-                Produtividade e flexibilidade ao seu alcance.
+                {pageDescription}
               </p>
             </div>
 

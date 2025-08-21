@@ -2,28 +2,40 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, TrendingUp, Users, DollarSign } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Proprietarios = () => {
+  const { translatedText: pageTitle } = useTranslation("Para Proprietários de Espaços");
+  const { translatedText: pageDescription } = useTranslation("Transforme o seu espaço numa fonte de receita constante. Ofereça aos profissionais o ambiente ideal para trabalhar.");
+  const { translatedText: dashboardTitle } = useTranslation("Dashboard Completo");
+  const { translatedText: dashboardDesc } = useTranslation("Gerencie seus espaços, reservas e receitas em um painel intuitivo e completo.");
+  const { translatedText: paymentsTitle } = useTranslation("Pagamentos Seguros");
+  const { translatedText: paymentsDesc } = useTranslation("Receba pagamentos de forma segura e automática através de múltiplas opções.");
+  const { translatedText: usersTitle } = useTranslation("Gestão de Utilizadores");
+  const { translatedText: usersDesc } = useTranslation("Gerencie reservas e comunique directamente com os seus clientes.");
+  const { translatedText: revenueTitle } = useTranslation("Maximize Receitas");
+  const { translatedText: revenueDesc } = useTranslation("Optimize a ocupação do seu espaço e aumente os lucros.");
+
   const ownerFeatures = [
     {
       icon: Shield,
-      title: "Dashboard Completo",
-      description: "Gerencie seus espaços, reservas e receitas em um painel intuitivo e completo."
+      title: dashboardTitle,
+      description: dashboardDesc
     },
     {
       icon: DollarSign,
-      title: "Pagamentos Seguros",
-      description: "Receba pagamentos de forma segura e automática através de múltiplas opções."
+      title: paymentsTitle,
+      description: paymentsDesc
     },
     {
       icon: Users,
-      title: "Gestão de Utilizadores",
-      description: "Gerencie reservas e comunique directamente com os seus clientes."
+      title: usersTitle,
+      description: usersDesc
     },
     {
       icon: TrendingUp,
-      title: "Maximize Receitas",
-      description: "Optimize a ocupação do seu espaço e aumente os lucros."
+      title: revenueTitle,
+      description: revenueDesc
     }
   ];
 
@@ -35,11 +47,10 @@ const Proprietarios = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Para Proprietários de Espaços
+                {pageTitle}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Transforme o seu espaço numa fonte de receita constante. 
-                Ofereça aos profissionais o ambiente ideal para trabalhar.
+                {pageDescription}
               </p>
             </div>
 
