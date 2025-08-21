@@ -4,10 +4,21 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Icon } from "@iconify/react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const { user, profile, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -57,12 +68,47 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="sm">
-            Entrar
-          </Button>
-          <Button variant="cta" size="sm">
-            Começar Agora
-          </Button>
+          {user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="flex items-center space-x-2">
+                  <Icon icon="mdi:account-circle" className="w-4 h-4" />
+                  <span>{profile?.first_name || 'Utilizador'}</span>
+                  <Icon icon="mdi-light:chevron-down" className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border-border shadow-elegant z-50" align="end">
+                <DropdownMenuItem asChild>
+                  <button 
+                    onClick={() => navigate('/dashboard')}
+                    className="flex w-full px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer"
+                  >
+                    <Icon icon="mdi:view-dashboard" className="mr-2 h-4 w-4" />
+                    Dashboard
+                  </button>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <button 
+                    onClick={handleSignOut}
+                    className="flex w-full px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer text-destructive"
+                  >
+                    <Icon icon="mdi:logout" className="mr-2 h-4 w-4" />
+                    Sair
+                  </button>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <>
+              <Button variant="ghost" size="sm" onClick={() => navigate('/auth')}>
+                Entrar
+              </Button>
+              <Button variant="cta" size="sm" onClick={() => navigate('/auth')}>
+                Começar Agora
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </header>
