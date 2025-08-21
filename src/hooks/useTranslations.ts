@@ -8,27 +8,44 @@ export const useTranslations = (texts: string[], targetLang?: LanguageCode) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    let isCancelled = false;
+    
     const performTranslations = async () => {
       const target = targetLang || currentLanguage;
       
       if (target === 'pt') {
-        setTranslatedTexts(texts);
+        if (!isCancelled) {
+          setTranslatedTexts(texts);
+        }
         return;
       }
 
-      setIsLoading(true);
+      if (!isCancelled) {
+        setIsLoading(true);
+      }
+      
       try {
         const results = await translateMany(texts, target);
-        setTranslatedTexts(results);
+        if (!isCancelled) {
+          setTranslatedTexts(results);
+        }
       } catch (error) {
         console.error('Batch translation failed:', error);
-        setTranslatedTexts(texts); // Fallback to original
+        if (!isCancelled) {
+          setTranslatedTexts(texts); // Fallback to original
+        }
       } finally {
-        setIsLoading(false);
+        if (!isCancelled) {
+          setIsLoading(false);
+        }
       }
     };
 
     performTranslations();
+    
+    return () => {
+      isCancelled = true;
+    };
   }, [texts, currentLanguage, targetLang, translateMany]);
 
   return { translatedTexts, isLoading };

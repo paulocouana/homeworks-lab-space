@@ -59,16 +59,22 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     try {
       setIsTranslating(true);
       
-      const { data, error } = await supabase.functions.invoke('translate-text', {
-        body: { text, targetLanguage: target }
-      });
+      // Add timeout to prevent infinite hanging
+      const { data, error } = await Promise.race([
+        supabase.functions.invoke('translate-text', {
+          body: { text, targetLanguage: target }
+        }),
+        new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Translation timeout')), 10000)
+        )
+      ]) as any;
 
       if (error) {
         console.error('Translation error:', error);
         return text; // Fallback to original text
       }
 
-      const translatedText = data.translatedText;
+      const translatedText = data?.translatedText || text;
       
       // Cache the translation
       setCachedTranslation(text, target, translatedText);
@@ -113,9 +119,15 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     try {
       setIsTranslating(true);
       
-      const { data, error } = await supabase.functions.invoke('translate-text', {
-        body: { texts: uncachedTexts, targetLanguage: target }
-      });
+      // Add timeout to prevent infinite hanging
+      const { data, error } = await Promise.race([
+        supabase.functions.invoke('translate-text', {
+          body: { texts: uncachedTexts, targetLanguage: target }
+        }),
+        new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Batch translation timeout')), 15000)
+        )
+      ]) as any;
 
       if (error) {
         console.error('Batch translation error:', error);
@@ -126,7 +138,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         return results;
       }
 
-      const translatedTexts = data.translatedTexts || uncachedTexts;
+      const translatedTexts = data?.translatedTexts || uncachedTexts;
       
       // Cache the translations and fill results
       uncachedIndices.forEach((index, i) => {

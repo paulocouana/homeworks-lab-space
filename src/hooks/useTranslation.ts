@@ -8,27 +8,44 @@ export const useTranslation = (text: string, targetLang?: LanguageCode) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    let isCancelled = false;
+    
     const performTranslation = async () => {
       const target = targetLang || currentLanguage;
       
       if (target === 'pt') {
-        setTranslatedText(text);
+        if (!isCancelled) {
+          setTranslatedText(text);
+        }
         return;
       }
 
-      setIsLoading(true);
+      if (!isCancelled) {
+        setIsLoading(true);
+      }
+      
       try {
         const result = await translate(text, target);
-        setTranslatedText(result);
+        if (!isCancelled) {
+          setTranslatedText(result);
+        }
       } catch (error) {
         console.error('Translation failed:', error);
-        setTranslatedText(text); // Fallback to original
+        if (!isCancelled) {
+          setTranslatedText(text); // Fallback to original
+        }
       } finally {
-        setIsLoading(false);
+        if (!isCancelled) {
+          setIsLoading(false);
+        }
       }
     };
 
     performTranslation();
+    
+    return () => {
+      isCancelled = true;
+    };
   }, [text, currentLanguage, targetLang, translate]);
 
   return { translatedText, isLoading };
