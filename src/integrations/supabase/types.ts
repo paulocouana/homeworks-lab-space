@@ -209,6 +209,7 @@ export type Database = {
           created_at: string
           description: string | null
           id: string
+          is_active: boolean
           organization_id: string | null
           owner_id: string
           price_per_hour: number
@@ -223,6 +224,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           id?: string
+          is_active?: boolean
           organization_id?: string | null
           owner_id: string
           price_per_hour?: number
@@ -237,6 +239,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           id?: string
+          is_active?: boolean
           organization_id?: string | null
           owner_id?: string
           price_per_hour?: number

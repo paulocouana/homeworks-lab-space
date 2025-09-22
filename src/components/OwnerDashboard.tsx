@@ -79,18 +79,31 @@ const OwnerDashboard = () => {
               total_amount,
               currency,
               user_id,
-              spaces (title),
-              profiles (
-                first_name,
-                last_name,
-                email
-              )
+              space_id,
+              spaces!inner (title)
             `)
             .in('space_id', spaceIds)
             .order('start_time', { ascending: false });
 
           if (bookingsError) throw bookingsError;
-          setBookings(bookingsData || []);
+          
+          // Get user profiles separately for each booking
+          const bookingsWithProfiles = await Promise.all(
+            (bookingsData || []).map(async (booking) => {
+              const { data: profile } = await supabase
+                .from('profiles')
+                .select('first_name, last_name, email')
+                .eq('id', booking.user_id)
+                .single();
+              
+              return {
+                ...booking,
+                profiles: profile || { first_name: '', last_name: '', email: '' }
+              };
+            })
+          );
+          
+          setBookings(bookingsWithProfiles);
         }
       } catch (error) {
         console.error('Error fetching owner data:', error);
