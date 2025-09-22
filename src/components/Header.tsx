@@ -30,15 +30,6 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#como-funciona" className="text-foreground hover:text-primary transition-colors">
-            Como Funciona
-          </a>
-          <a href="#proprietarios" className="text-foreground hover:text-primary transition-colors">
-            Para Proprietários
-          </a>
-          <a href="#utilizadores" className="text-foreground hover:text-primary transition-colors">
-            Para Utilizadores
-          </a>
           <a href="#precos" className="text-foreground hover:text-primary transition-colors">
             Preços
           </a>
