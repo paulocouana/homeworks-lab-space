@@ -24,7 +24,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">H</span>
+            <span className="text-white font-bold text-lg">W</span>
           </div>
           <span className="text-2xl font-bold text-primary">Homeworks Lab</span>
         </div>
