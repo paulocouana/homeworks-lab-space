@@ -54,7 +54,7 @@ const Footer = () => {
               <li><a href="#" className="text-white/80 hover:text-white transition-colors">Eventos</a></li>
               <li><a href="#" className="text-white/80 hover:text-white transition-colors">Podcasts</a></li>
               <li><a href="#" className="text-white/80 hover:text-white transition-colors">Feedback</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Estamos contratando. Faça parte da equipa da HomeWorks</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Estamos contratando. Junte-se a Nossa Equipa</a></li>
               <li><a href="#" className="text-white/80 hover:text-white transition-colors">Comunidade do HomeWorks</a></li>
             </ul>
           </div>
