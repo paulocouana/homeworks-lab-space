@@ -80,7 +80,7 @@ const Header = () => {
             <>
               <Button variant="ghost" size="sm" onClick={() => navigate('/auth')}>
                 Entrar
-              </Button>*
+              </Button>
               <Button variant="cta" size="sm" onClick={() => navigate('/auth')}>
                 Cadastrar
               </Button>
