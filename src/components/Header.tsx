@@ -78,11 +78,11 @@ const Header = () => {
             </DropdownMenu>
           ) : (
             <>
-              {/*<Button variant="ghost" size="sm" onClick={() => navigate('/auth')}>
+              <Button variant="ghost" size="sm" onClick={() => navigate('/auth')}>
                 Entrar
-              </Button>*/}
+              </Button>*
               <Button variant="cta" size="sm" onClick={() => navigate('/auth')}>
-                Entrar/ Cadastrar
+                Cadastrar
               </Button>
             </>
           )}
