@@ -30,29 +30,15 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors focus:outline-none">
-              <span>Visão Geral</span>
-              <Icon icon="mdi-light:chevron-down" className="w-4 h-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-background border-border shadow-elegant z-50">
-              <DropdownMenuItem asChild>
-                <a href="/como-funciona" className="flex w-full px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer">
-                  Como Funciona
-                </a>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <a href="/proprietarios" className="flex w-full px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer">
-                  Para Proprietários
-                </a>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <a href="/utilizadores" className="flex w-full px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer">
-                  Para Utilizadores
-                </a>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <a href="/como-funciona" className="text-foreground hover:text-primary transition-colors">
+            Como Funciona
+          </a>
+          <a href="/proprietarios" className="text-foreground hover:text-primary transition-colors">
+            Para Proprietários
+          </a>
+          <a href="/utilizadores" className="text-foreground hover:text-primary transition-colors">
+            Para Utilizadores
+          </a>
           <a href="#precos" className="text-foreground hover:text-primary transition-colors">
             Preços
           </a>
