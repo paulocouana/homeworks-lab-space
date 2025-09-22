@@ -14,7 +14,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Homeworks Lab</span>
             </div>
             <p className="text-white/80 mb-4">
-              A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios em Portugal e Moçambique.
+              A plataforma líder para descobrir, reservar e gerir espaços de coworking e escritórios em Moçambique e Portugal.
             </p>
             <div className="flex space-x-4">
               <Facebook className="w-5 h-5 text-white/60 hover:text-white cursor-pointer transition-colors" />
@@ -53,7 +53,7 @@ const Footer = () => {
               <li><a href="#" className="text-white/80 hover:text-white transition-colors">Torne-se um parceiro</a></li>
               <li><a href="#" className="text-white/80 hover:text-white transition-colors">Eventos</a></li>
               <li><a href="#" className="text-white/80 hover:text-white transition-colors">Podcasts</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Participar da pesquisa do usuário</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Feedback</a></li>
               <li><a href="#" className="text-white/80 hover:text-white transition-colors">Estamos contratando. Faça parte da equipa da HomeWorks</a></li>
               <li><a href="#" className="text-white/80 hover:text-white transition-colors">Comunidade do HomeWorks</a></li>
             </ul>
