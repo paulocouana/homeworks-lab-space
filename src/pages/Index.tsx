@@ -9,25 +9,25 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-16 sm:pt-20">
       <Header />
       <HeroSection />
       
 
       {/* Para Utilizadores Section */}
-      <section id="utilizadores" className="py-20 bg-gradient-subtle">
+      <section id="utilizadores" className="py-12 sm:py-16 lg:py-20 bg-gradient-subtle">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
               Para Profissionais e Estudantes
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
               Encontre o espaço perfeito para o seu trabalho. 
               Produtividade e flexibilidade ao seu alcance.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             <div className="group hover:shadow-elegant transition-all duration-300 hover:scale-105 bg-card rounded-lg border border-border">
               <div className="p-6 text-center">
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:shadow-soft transition-all duration-300">
@@ -128,19 +128,19 @@ const Index = () => {
       </section>
 
       {/* Para Proprietários Section */}
-      <section id="proprietarios" className="py-20 bg-background">
+      <section id="proprietarios" className="py-12 sm:py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
               Para Proprietários de Espaços
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
               Transforme o seu espaço numa fonte de receita constante. 
               Ofereça aos profissionais o ambiente ideal para trabalhar.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             <div className="group hover:shadow-elegant transition-all duration-300 hover:scale-105 bg-card rounded-lg border border-border">
               <div className="p-6 text-center">
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:shadow-soft transition-all duration-300">

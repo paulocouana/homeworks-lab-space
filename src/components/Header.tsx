@@ -21,30 +21,30 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">W</span>
+          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-sm sm:text-lg">W</span>
           </div>
-          <span className="text-2xl font-bold text-primary">Homeworks Lab</span>
+          <span className="text-lg sm:text-2xl font-bold text-primary">Homeworks Lab</span>
         </div>
         
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#" className="text-foreground hover:text-primary transition-colors">
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <a href="#" className="text-foreground hover:text-primary transition-colors text-sm xl:text-base">
             Soluções
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition-colors">
+          <a href="#" className="text-foreground hover:text-primary transition-colors text-sm xl:text-base">
             Serviços
           </a>
-          <a href="#precos" className="text-foreground hover:text-primary transition-colors">
+          <a href="#precos" className="text-foreground hover:text-primary transition-colors text-sm xl:text-base">
             Preços
           </a>
-          <a href="/contacto" className="text-foreground hover:text-primary transition-colors">
+          <a href="/contacto" className="text-foreground hover:text-primary transition-colors text-sm xl:text-base">
             Contactar a Nossa Equipa
           </a>
         </nav>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 sm:space-x-4">
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -78,10 +78,10 @@ const Header = () => {
             </DropdownMenu>
           ) : (
             <>
-              <Button variant="ghost" size="sm" onClick={() => navigate('/auth')}>
+              <Button variant="ghost" size="sm" className="text-xs sm:text-sm px-2 sm:px-4" onClick={() => navigate('/auth')}>
                 Entrar
               </Button>
-              <Button variant="cta" size="sm" onClick={() => navigate('/auth')}>
+              <Button variant="cta" size="sm" className="text-xs sm:text-sm px-2 sm:px-4" onClick={() => navigate('/auth')}>
                 Cadastrar
               </Button>
             </>
