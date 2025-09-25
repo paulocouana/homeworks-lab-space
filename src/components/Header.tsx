@@ -6,17 +6,28 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Icon } from "@iconify/react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Header = () => {
   const { user, profile, signOut } = useAuth();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSignOut = async () => {
     await signOut();
     navigate('/');
+  };
+
+  const handleNavClick = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -44,7 +55,105 @@ const Header = () => {
           </a>
         </nav>
 
-        <div className="flex items-center space-x-2 sm:space-x-4">
+        
+        {/* Mobile Menu */}
+        <div className="lg:hidden">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="sm" className="p-2">
+                <Icon icon="mdi:menu" className="w-6 h-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-80 bg-background border-border">
+              <div className="flex flex-col space-y-6 mt-8">
+                <nav className="flex flex-col space-y-4">
+                  <a 
+                    href="#" 
+                    className="text-foreground hover:text-primary transition-colors text-lg py-2"
+                    onClick={handleNavClick}
+                  >
+                    Soluções
+                  </a>
+                  <a 
+                    href="#" 
+                    className="text-foreground hover:text-primary transition-colors text-lg py-2"
+                    onClick={handleNavClick}
+                  >
+                    Serviços
+                  </a>
+                  <a 
+                    href="#precos" 
+                    className="text-foreground hover:text-primary transition-colors text-lg py-2"
+                    onClick={handleNavClick}
+                  >
+                    Preços
+                  </a>
+                  <a 
+                    href="/contacto" 
+                    className="text-foreground hover:text-primary transition-colors text-lg py-2"
+                    onClick={handleNavClick}
+                  >
+                    Contactar a Nossa Equipa
+                  </a>
+                </nav>
+                
+                <div className="border-t border-border pt-6">
+                  {user ? (
+                    <div className="space-y-4">
+                      <Button 
+                        variant="ghost" 
+                        className="w-full justify-start text-lg py-3"
+                        onClick={() => {
+                          navigate('/dashboard');
+                          handleNavClick();
+                        }}
+                      >
+                        <Icon icon="mdi:view-dashboard" className="mr-2 h-5 w-5" />
+                        Dashboard
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        className="w-full justify-start text-lg py-3 text-destructive"
+                        onClick={() => {
+                          handleSignOut();
+                          handleNavClick();
+                        }}
+                      >
+                        <Icon icon="mdi:logout" className="mr-2 h-5 w-5" />
+                        Sair
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="space-y-3">
+                      <Button 
+                        variant="ghost" 
+                        className="w-full text-lg py-3" 
+                        onClick={() => {
+                          navigate('/auth');
+                          handleNavClick();
+                        }}
+                      >
+                        Entrar
+                      </Button>
+                      <Button 
+                        variant="cta" 
+                        className="w-full text-lg py-3" 
+                        onClick={() => {
+                          navigate('/auth');
+                          handleNavClick();
+                        }}
+                      >
+                        Cadastrar
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+
+        <div className="hidden lg:flex items-center space-x-2 sm:space-x-4">
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
