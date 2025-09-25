@@ -87,21 +87,16 @@ const OwnerDashboard = () => {
 
           if (bookingsError) throw bookingsError;
           
-          // Get user profiles separately for each booking
-          const bookingsWithProfiles = await Promise.all(
-            (bookingsData || []).map(async (booking) => {
-              const { data: profile } = await supabase
-                .from('profiles')
-                .select('first_name, last_name, email')
-                .eq('id', booking.user_id)
-                .single();
-              
-              return {
-                ...booking,
-                profiles: profile || { first_name: '', last_name: '', email: '' }
-              };
-            })
-          );
+          // For privacy and security, don't fetch customer personal data
+          // Only show anonymized information for bookings
+          const bookingsWithProfiles = (bookingsData || []).map((booking) => ({
+            ...booking,
+            profiles: { 
+              first_name: 'Cliente', 
+              last_name: `***${booking.user_id.slice(-4)}`, 
+              email: '***@***.***' 
+            }
+          }));
           
           setBookings(bookingsWithProfiles);
         }
