@@ -265,6 +265,10 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: Database["public"]["Enums"]["user_type"]
       }
+      get_user_organization_role: {
+        Args: { org_id: string; user_id: string }
+        Returns: string
+      }
     }
     Enums: {
       user_type: "client" | "owner" | "admin"
