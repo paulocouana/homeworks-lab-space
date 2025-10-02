@@ -6,8 +6,11 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import Benefits from "@/components/Benefits";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className="min-h-screen pt-16 sm:pt-20">
       <Header />
@@ -19,11 +22,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-              Para Profissionais e Estudantes
+              {t('index.usersTitle')}
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-              Encontre o espaço perfeito para o seu trabalho. 
-              Produtividade e flexibilidade ao seu alcance.
+              {t('index.usersSubtitle')}
             </p>
           </div>
 
@@ -36,10 +38,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Pesquisa Avançada
+                  {t('index.advancedSearch')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Encontre espaços por localização, comodidades, preço e disponibilidade.
+                  {t('index.advancedSearchDesc')}
                 </p>
               </div>
             </div>
@@ -52,10 +54,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Múltiplos Pagamentos
+                  {t('index.multiplePayments')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Pague com cartão, PayPal, Stripe, M-Pesa, mKesh ou e-Mola.
+                  {t('index.multiplePaymentsDesc')}
                 </p>
               </div>
             </div>
@@ -68,10 +70,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Reserva Instantânea
+                  {t('index.instantBooking')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Reserve espaços em tempo real com confirmação imediata.
+                  {t('index.instantBookingDesc')}
                 </p>
               </div>
             </div>
@@ -84,10 +86,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Flexibilidade Total
+                  {t('index.totalFlexibility')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Reserve por horas, dias ou meses. Adapta-se às suas necessidades de trabalho.
+                  {t('index.totalFlexibilityDesc')}
                 </p>
               </div>
             </div>
@@ -100,10 +102,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Comunidade
+                  {t('index.community')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Conecte-se com outros profissionais e faça networking de qualidade.
+                  {t('index.communityDesc')}
                 </p>
               </div>
             </div>
@@ -116,10 +118,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Eventos
+                  {t('index.events')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Participe de eventos de networking e mais.
+                  {t('index.eventsDesc')}
                 </p>
               </div>
             </div>
@@ -132,11 +134,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-              Para Proprietários de Espaços
+              {t('index.ownersTitle')}
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-              Transforme o seu espaço numa fonte de receita constante. 
-              Ofereça aos profissionais o ambiente ideal para trabalhar.
+              {t('index.ownersSubtitle')}
             </p>
           </div>
 
@@ -149,10 +150,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Dashboard Completo
+                  {t('index.completeDashboard')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Gerencie seus espaços, reservas e receitas em um painel intuitivo e completo.
+                  {t('index.completeDashboardDesc')}
                 </p>
               </div>
             </div>
@@ -165,10 +166,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Pagamentos Seguros
+                  {t('index.securePayments')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Receba pagamentos de forma segura e automática através de múltiplas opções.
+                  {t('index.securePaymentsDesc')}
                 </p>
               </div>
             </div>
@@ -181,10 +182,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Gestão de Utilizadores
+                  {t('index.userManagement')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Gerencie reservas e comunique directamente com os seus clientes.
+                  {t('index.userManagementDesc')}
                 </p>
               </div>
             </div>
@@ -197,10 +198,10 @@ const Index = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Maximize Receitas
+                  {t('index.maximizeRevenue')}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Optimize a ocupação do seu espaço e aumente os lucros.
+                  {t('index.maximizeRevenueDesc')}
                 </p>
               </div>
             </div>
