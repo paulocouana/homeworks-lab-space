@@ -3,14 +3,16 @@ import { useAuth } from '@/contexts/AuthContext';
 import ClientDashboard from '@/components/ClientDashboard';
 import OwnerDashboard from '@/components/OwnerDashboard';
 import AdminDashboard from '@/components/AdminDashboard';
+import { useTranslation } from 'react-i18next';
 
 const Dashboard = () => {
   const { user, profile, loading } = useAuth();
+  const { t } = useTranslation();
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse">Carregando...</div>
+        <div className="animate-pulse">{t('dashboard.loading')}</div>
       </div>
     );
   }
@@ -22,7 +24,7 @@ const Dashboard = () => {
   if (!profile) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div>Carregando perfil...</div>
+        <div>{t('dashboard.loadingProfile')}</div>
       </div>
     );
   }

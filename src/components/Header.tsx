@@ -15,11 +15,14 @@ import { Icon } from "@iconify/react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
   const { user, profile, signOut } = useAuth();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   const handleSignOut = async () => {
     await signOut();
@@ -42,16 +45,16 @@ const Header = () => {
         
         <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           <a href="#" className="text-foreground hover:text-primary transition-colors text-sm xl:text-base">
-            Soluções
+            {t('header.solutions')}
           </a>
           <a href="#" className="text-foreground hover:text-primary transition-colors text-sm xl:text-base">
-            Serviços
+            {t('header.services')}
           </a>
           <a href="#precos" className="text-foreground hover:text-primary transition-colors text-sm xl:text-base">
-            Preços
+            {t('header.pricing')}
           </a>
           <a href="/contacto" className="text-foreground hover:text-primary transition-colors text-sm xl:text-base">
-            Contactar a Nossa Equipa
+            {t('header.contact')}
           </a>
         </nav>
 
@@ -72,28 +75,28 @@ const Header = () => {
                     className="text-foreground hover:text-primary transition-colors text-lg py-2"
                     onClick={handleNavClick}
                   >
-                    Soluções
+                    {t('header.solutions')}
                   </a>
                   <a 
                     href="#" 
                     className="text-foreground hover:text-primary transition-colors text-lg py-2"
                     onClick={handleNavClick}
                   >
-                    Serviços
+                    {t('header.services')}
                   </a>
                   <a 
                     href="#precos" 
                     className="text-foreground hover:text-primary transition-colors text-lg py-2"
                     onClick={handleNavClick}
                   >
-                    Preços
+                    {t('header.pricing')}
                   </a>
                   <a 
                     href="/contacto" 
                     className="text-foreground hover:text-primary transition-colors text-lg py-2"
                     onClick={handleNavClick}
                   >
-                    Contactar a Nossa Equipa
+                    {t('header.contact')}
                   </a>
                 </nav>
                 
@@ -120,7 +123,7 @@ const Header = () => {
                         }}
                       >
                         <Icon icon="mdi:logout" className="mr-2 h-5 w-5" />
-                        Sair
+                        {t('header.logout')}
                       </Button>
                     </div>
                   ) : (
@@ -133,7 +136,7 @@ const Header = () => {
                           handleNavClick();
                         }}
                       >
-                        Entrar
+                        {t('header.login')}
                       </Button>
                       <Button 
                         variant="cta" 
@@ -143,7 +146,7 @@ const Header = () => {
                           handleNavClick();
                         }}
                       >
-                        Cadastrar
+                        {t('header.signup')}
                       </Button>
                     </div>
                   )}
@@ -154,6 +157,7 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:flex items-center space-x-2 sm:space-x-4">
+          <LanguageSwitcher />
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -180,7 +184,7 @@ const Header = () => {
                     className="flex w-full px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer text-destructive"
                   >
                     <Icon icon="mdi:logout" className="mr-2 h-4 w-4" />
-                    Sair
+                    {t('header.logout')}
                   </button>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -188,10 +192,10 @@ const Header = () => {
           ) : (
             <>
               <Button variant="ghost" size="sm" className="text-xs sm:text-sm px-2 sm:px-4" onClick={() => navigate('/auth')}>
-                Entrar
+                {t('header.login')}
               </Button>
               <Button variant="cta" size="sm" className="text-xs sm:text-sm px-2 sm:px-4" onClick={() => navigate('/auth')}>
-                Cadastrar
+                {t('header.signup')}
               </Button>
             </>
           )}

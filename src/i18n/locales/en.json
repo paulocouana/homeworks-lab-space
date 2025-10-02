@@ -1,0 +1,38 @@
+{
+  "header": {
+    "solutions": "Solutions",
+    "services": "Services",
+    "pricing": "Pricing",
+    "contact": "Contact Our Team",
+    "login": "Sign In",
+    "signup": "Sign Up",
+    "logout": "Sign Out"
+  },
+  "footer": {
+    "description": "We connect property owners with professionals looking for flexible workspaces.",
+    "platform": "Platform",
+    "howItWorks": "How It Works",
+    "forOwners": "For Owners",
+    "forUsers": "For Users",
+    "support": "Support",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "engage": "Engage",
+    "about": "About HomeWorks",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "sustainability": "Sustainability",
+    "newsletter": "Subscribe to Newsletter",
+    "subscribe": "Subscribe",
+    "copyright": "HomeWorks. All rights reserved."
+  },
+  "dashboard": {
+    "loading": "Loading...",
+    "loadingProfile": "Loading profile..."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Page not found",
+    "returnHome": "Return to Home"
+  }
+}

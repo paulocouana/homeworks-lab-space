@@ -1,0 +1,38 @@
+{
+  "header": {
+    "solutions": "Soluções",
+    "services": "Serviços",
+    "pricing": "Preços",
+    "contact": "Contactar a Nossa Equipa",
+    "login": "Entrar",
+    "signup": "Cadastrar",
+    "logout": "Sair"
+  },
+  "footer": {
+    "description": "Conectamos proprietários de imóveis com profissionais em busca de espaços flexíveis para trabalhar.",
+    "platform": "Plataforma",
+    "howItWorks": "Como Funciona",
+    "forOwners": "Para Proprietários",
+    "forUsers": "Para Utilizadores",
+    "support": "Suporte",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "engage": "Engajar",
+    "about": "Sobre a HomeWorks",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "sustainability": "Sustentabilidade",
+    "newsletter": "Subscrever Newsletter",
+    "subscribe": "Assinar",
+    "copyright": "HomeWorks. Todos os direitos reservados."
+  },
+  "dashboard": {
+    "loading": "Carregando...",
+    "loadingProfile": "Carregando perfil..."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Página não encontrada",
+    "returnHome": "Voltar para a Página Inicial"
+  }
+}
