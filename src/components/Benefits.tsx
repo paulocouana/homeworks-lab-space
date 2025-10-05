@@ -1,36 +1,39 @@
 import { Shield, Clock, Zap, TrendingUp, Globe, Heart } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Benefits = () => {
+  const { t } = useTranslation();
+  
   const benefits = [
     {
       icon: <Shield className="h-8 w-8" />,
-      title: "Pagamentos Seguros",
-      description: "Sistema de pagamento integrado e seguro com emissão automática de recibos."
+      title: t('benefits.securePayments'),
+      description: t('benefits.securePaymentsDesc')
     },
     {
       icon: <Clock className="h-8 w-8" />,
-      title: "Flexibilidade Total",
-      description: "Reserve por horas, dias ou meses. Adapte-se às suas necessidades de trabalho."
+      title: t('benefits.totalFlexibility'),
+      description: t('benefits.totalFlexibilityDesc')
     },
     {
       icon: <Zap className="h-8 w-8" />,
-      title: "Reserva Instantânea",
-      description: "Confirmação imediata das suas reservas. Sem esperas, sem complicações."
+      title: t('benefits.instantBooking'),
+      description: t('benefits.instantBookingDesc')
     },
     {
       icon: <TrendingUp className="h-8 w-8" />,
-      title: "Maximize Receitas",
-      description: "Para proprietários: otimize a ocupação do seu espaço e aumente os lucros."
+      title: t('benefits.maximizeRevenue'),
+      description: t('benefits.maximizeRevenueDesc')
     },
     {
       icon: <Globe className="h-8 w-8" />,
-      title: "Rede Nacional",
-      description: "Acesso a espaços em todo o país. Trabalhe onde quiser, quando quiser."
+      title: t('benefits.nationalNetwork'),
+      description: t('benefits.nationalNetworkDesc')
     },
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "Comunidade",
-      description: "Conecte-se com outros profissionais e faça networking de qualidade."
+      title: t('benefits.community'),
+      description: t('benefits.communityDesc')
     }
   ];
 
@@ -39,10 +42,10 @@ const Benefits = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Precisa de mais motivos para escolher o Homeworks?
+            {t('benefits.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A plataforma que revoluciona a forma como você trabalha e gerencia espaços.
+            {t('benefits.subtitle')}
           </p>
         </div>
         

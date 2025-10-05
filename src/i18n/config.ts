@@ -97,7 +97,19 @@ const resources = {
       "testimonials": {
         "title": "Depoimentos de Clientes",
         "subtitle": "Veja o que os nossos utilizadores dizem sobre a experiência Homeworks Lab",
-        "rating": "baseado em 200+ avaliações"
+        "rating": "baseado em 200+ avaliações",
+        "testimonial1": {
+          "name": "Ana Silva",
+          "role": "Designer Freelancer",
+          "company": "Design Studio",
+          "text": "A Homeworks Lab transformou completamente a minha produtividade. O ambiente é perfeito para o trabalho criativo e as facilidades são excelentes."
+        },
+        "testimonial2": {
+          "name": "João Santos",
+          "role": "Desenvolvedor",
+          "company": "Tech Solutions",
+          "text": "Encontrei exactamente o que procurava: um espaço silencioso, bem equipado e com internet rápida. Recomendo a todos os profissionais remotos."
+        }
       },
       "howItWorks": {
         "title": "Como Funciona",
@@ -374,7 +386,19 @@ const resources = {
       "testimonials": {
         "title": "Customer Testimonials",
         "subtitle": "See what our users say about the Homeworks Lab experience",
-        "rating": "based on 200+ reviews"
+        "rating": "based on 200+ reviews",
+        "testimonial1": {
+          "name": "Ana Silva",
+          "role": "Freelance Designer",
+          "company": "Design Studio",
+          "text": "Homeworks Lab completely transformed my productivity. The environment is perfect for creative work and the facilities are excellent."
+        },
+        "testimonial2": {
+          "name": "João Santos",
+          "role": "Developer",
+          "company": "Tech Solutions",
+          "text": "I found exactly what I was looking for: a quiet space, well-equipped with fast internet. I recommend it to all remote professionals."
+        }
       },
       "howItWorks": {
         "title": "How It Works",

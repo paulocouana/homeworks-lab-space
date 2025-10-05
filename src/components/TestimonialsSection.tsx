@@ -1,24 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const TestimonialsSection = () => {
+  const { t } = useTranslation();
+  
   const testimonials = [
     {
-      name: "Ana Silva",
-      role: "Designer Freelancer",
-      company: "Design Studio",
+      name: t('testimonials.testimonial1.name'),
+      role: t('testimonials.testimonial1.role'),
+      company: t('testimonials.testimonial1.company'),
       avatar: "AS",
       rating: 5,
-      text: "A Homeworks Lab transformou completamente a minha produtividade. O ambiente é perfeito para o trabalho criativo e as facilidades são excelentes."
+      text: t('testimonials.testimonial1.text')
     },
     {
-      name: "João Santos",
-      role: "Desenvolvedor",
-      company: "Tech Solutions",
+      name: t('testimonials.testimonial2.name'),
+      role: t('testimonials.testimonial2.role'),
+      company: t('testimonials.testimonial2.company'),
       avatar: "JS",
       rating: 5,
-      text: "Encontrei exactamente o que procurava: um espaço silencioso, bem equipado e com internet rápida. Recomendo a todos os profissionais remotos."
+      text: t('testimonials.testimonial2.text')
     }
   ];
 
@@ -33,10 +36,10 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Depoimentos de Clientes
+            {t('testimonials.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Veja o que os nossos utilizadores dizem sobre a experiência Homeworks Lab
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
@@ -83,7 +86,7 @@ const TestimonialsSection = () => {
               {renderStars(5)}
             </div>
             <span className="text-sm font-medium text-muted-foreground">
-              4.9/5 baseado em 200+ avaliações
+              4.9/5 {t('testimonials.rating')}
             </span>
           </div>
         </div>
