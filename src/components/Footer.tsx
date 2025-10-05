@@ -1,5 +1,6 @@
-import { Facebook, Twitter, Linkedin, Instagram, Leaf, Globe } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Leaf } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -90,10 +91,7 @@ const Footer = () => {
                   {t('footer.subscribe')}
                 </button>
               </div>
-              <div className="flex items-center gap-1 text-white/70 hover:text-white cursor-pointer">
-                <Globe className="w-4 h-4" />
-                <span className="text-sm">PT</span>
-              </div>
+              <LanguageSwitcher />
             </div>
           </div>
 
