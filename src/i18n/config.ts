@@ -583,7 +583,7 @@ const resources = {
   }
 };
 
-i18n
+const i18nPromise = i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -601,4 +601,5 @@ i18n
     }
   });
 
+export { i18nPromise };
 export default i18n;
