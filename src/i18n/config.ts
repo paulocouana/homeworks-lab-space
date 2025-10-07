@@ -583,7 +583,7 @@ const resources = {
   }
 };
 
-const i18nPromise = i18n
+i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -598,8 +598,8 @@ const i18nPromise = i18n
     },
     react: {
       useSuspense: false,
-    }
+    },
+    lng: localStorage.getItem('i18nextLng') || 'pt',
   });
 
-export { i18nPromise };
 export default i18n;
