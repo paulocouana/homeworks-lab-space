@@ -11,7 +11,7 @@ import { Icon } from '@iconify/react';
 import { toast } from 'sonner';
 
 const Auth = () => {
-  const { user, signInWithEmail, signUpWithEmail, signInWithGoogle, resetPassword, loading } = useAuth();
+  const { user, signInWithEmail, signUpWithEmail, signInWithGoogle, loading } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   
   // Redirect if already authenticated
@@ -88,24 +88,6 @@ const Auth = () => {
     setIsLoading(false);
   };
 
-  const handleResetPassword = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-    
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get('email') as string;
-
-    const { error } = await resetPassword(email);
-    
-    if (error) {
-      toast.error(error.message);
-    } else {
-      toast.success('Email de recuperação enviado! Verifique a sua caixa de entrada.');
-    }
-    
-    setIsLoading(false);
-  };
-
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -130,10 +112,9 @@ const Auth = () => {
         
         <CardContent>
           <Tabs defaultValue="signin" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="signin">Entrar</TabsTrigger>
               <TabsTrigger value="signup">Registar</TabsTrigger>
-              <TabsTrigger value="reset">Recuperar</TabsTrigger>
             </TabsList>
             
             <TabsContent value="signin" className="space-y-4">
@@ -234,29 +215,6 @@ const Auth = () => {
                 
                 <Button type="submit" className="w-full" disabled={isLoading}>
                   {isLoading ? 'Criando conta...' : 'Criar Conta'}
-                </Button>
-              </form>
-            </TabsContent>
-            
-            <TabsContent value="reset" className="space-y-4">
-              <form onSubmit={handleResetPassword} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="reset-email">Email</Label>
-                  <Input
-                    id="reset-email"
-                    name="email"
-                    type="email"
-                    placeholder="seu@email.com"
-                    required
-                  />
-                </div>
-                
-                <p className="text-sm text-muted-foreground">
-                  Irá receber um email com instruções para redefinir a sua palavra-passe.
-                </p>
-                
-                <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? 'Enviando...' : 'Enviar Email de Recuperação'}
                 </Button>
               </form>
             </TabsContent>
