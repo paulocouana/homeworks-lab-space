@@ -12,6 +12,7 @@ import Contacto from "./pages/Contacto";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import GlobalLanguageSwitcher from "@/components/GlobalLanguageSwitcher";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <GlobalLanguageSwitcher />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/como-funciona" element={<ComoFunciona />} />
@@ -40,3 +42,4 @@ const App = () => (
 );
 
 export default App;
+
